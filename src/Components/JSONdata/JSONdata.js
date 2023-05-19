@@ -62,7 +62,7 @@ const JsonData = () => {
   const [dataSkills, setDataSkills] = React.useState(["Python", "Java"]);
 
   const handleDesignationFilter = (e) => {
-    if (designation == "Clear") {
+    if (designation == "All") {
       setFilteredData(data);
       return;
     } else {
@@ -123,11 +123,12 @@ const JsonData = () => {
                 onChange={(e)=>{setDesignation(e.target.value)}}
                 className="border border-gray-300 px-2 py-1 rounded"
               >
+                  <option defaultChecked>All</option>
                 {dataDesignations&&dataDesignations.map((item, idx) => {
                 return <option key={idx}>{item}</option>;
               })}
               </select>
-              <div onClick={()=>{setFilteredData(data)}} className='cursor-pointer'>Clear</div>
+              <div onClick={()=>{setFilteredData(data);setDesignation("All")}} className='cursor-pointer'>Clear</div>
 
             </div>
           </div>
